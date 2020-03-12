@@ -4,7 +4,11 @@
 		<title>Buy Your Way to a Better Education!</title>
 		<link href="buyagrade.css" type="text/css" rel="stylesheet" />
 	</head>
-	
+		<?php
+		$file = "Name: " 
+		.$_REQUEST['name'] ." section: " .$_REQUEST['section']. 
+		" credit number: " .$_REQUEST['credit_num']. " card: " .$_REQUEST['card']. "\n";
+		 file_put_contents("file.txt", $file, FILE_APPEND) ?>
 	<body>
 		
 		<h2>Thanks, sucker!</h2>
@@ -24,5 +28,10 @@
                 <?=$_REQUEST['credit_num']?>(<?=$_REQUEST['card']?>)
 			</dd>
 		</dl>
+
+		<?php foreach(file('file.txt') as $info): ?>
+			<p><?=$info?></p>
+			
+		<?php endforeach?>
 	</body>
 </html>
